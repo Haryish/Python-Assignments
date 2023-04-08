@@ -2,7 +2,7 @@
 """
 Created on Sat Mar 25 13:21:31 2023
 
-@author: haryi
+@author: Haryish Elangumaran
 """
 
 # Define the calc function using lambda functions
