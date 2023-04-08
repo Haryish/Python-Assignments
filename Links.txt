@@ -1,0 +1,3 @@
+HTTP https://github.com/Haryish/Python-Assignments.git
+SSH git@github.com:Haryish/Python-Assignments.git
+GitHub CLI gh repo clone Haryish/Python-Assignments
