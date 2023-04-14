@@ -127,7 +127,7 @@ h.	Print the unique bike details.
         <tr>
             <th>6</th>
             <td>Python Matrix Rotation</td>
-            <td>Not Started</td>
+            <td>Done</td>
         </tr>
         <tr>
             <th>7</th>
