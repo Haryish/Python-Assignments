@@ -107,12 +107,12 @@ h.	Print the unique bike details.
         <tr>
             <th>2</th>
             <td>Calculate Student Rank</td>
-            <td>Not Started</td>
+            <td>Done</td>
         </tr>
         <tr>
             <th>3</th>
             <td>Coprime</td>
-            <td>Not Started</td>
+            <td>Done</td>
         </tr>
         <tr>
             <th>4</th>
@@ -122,7 +122,7 @@ h.	Print the unique bike details.
         <tr>
             <th>5</th>
             <td>Paragraph Analysis Function</td>
-            <td>Not Started</td>
+            <td>Done</td>
         </tr>
         <tr>
             <th>6</th>
