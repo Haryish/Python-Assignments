@@ -9,7 +9,7 @@ Created on Sat Mar 25 13:13:43 2023
 def coprimenumber(a, b):
   x = set(factors(a))
   y = set(factors(b))
-  hcf = set(x.intersection(y))
+  hcf = x.intersection(y)
   print(a, b, hcf)
   if hcf == {1}:
     print('{} and {} are coprime'.format(a, b))
