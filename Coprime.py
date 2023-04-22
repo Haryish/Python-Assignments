@@ -17,12 +17,12 @@ def coprimenumber(a, b):
     print('{} and {} are not coprime'.format(a, b))
 
 
-def factors(i):
-  fac = [1]
-  for j in range(2, i + 1):
-    if i % j == 0:
-      fac.append(j)
-  return fac
+def factors(number):
+  factor = [1]
+  for j in range(2, number + 1):
+    if number % j == 0:
+      factor.append(j)
+  return factor
 
 print("As Per code,")
 coprimenumber(14,15)
