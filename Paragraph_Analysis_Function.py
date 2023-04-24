@@ -4,63 +4,55 @@ Created on Sat Mar 25 13:23:48 2023
 
 @author: Haryish Elangumaran
 """
-
-import string
-from collections import Counter
-
+import json #json format on the output is to be generated to promote readability
 
 def paragraph_stats(paragraph):
-  # remove special characters except apostrophe and hyphen
-  special_chars = string.punctuation.replace("'", "").replace("-", "")
-  paragraph = paragraph.translate(str.maketrans("", "", special_chars))
+    # Counting vowels, consonants, digits, symbols, and words
+    vowels = consonants = digits = symbols = words = 0
+    for char in paragraph:
+        if char.isalpha():
+            if char in 'AEIOUaeiou':
+                vowels += 1
+            else:
+                consonants += 1
+        elif char.isdigit():
+            digits += 1
+        elif char.isspace():
+            words += 1
+        else:
+            symbols += 1
+    words += 1
+    
+    # Counting sentences
+    sentences = paragraph.count('.') + paragraph.count('!') + paragraph.count('?')
+    
+    # Counting frequency of each distinct word
+    freq_dict = {}
+    for word in paragraph.lower().split():
+        word = ''.join(char for char in word if char.isalpha())
+        if word:
+            freq_dict[word] = freq_dict.get(word, 0) + 1
+    
+    # Counting palindrome words
+    palindrome = 0
+    for word in freq_dict:
+        if word == word[::-1]:
+            palindrome += 1
+    
+    # Counting anagrams
+    anagrams = 0
+    words_list = [word for word in freq_dict if len(word) > 1]
+    for i in range(len(words_list)):
+        for j in range(i+1, len(words_list)):
+            if sorted(words_list[i]) == sorted(words_list[j]):
+                anagrams += 1
+                
+    return {'vowels': vowels, 'consonants': consonants, 'digits': digits, 'symbols': symbols, 'words': words,
+            'sentences': sentences, 'frequency': freq_dict, 'palindrome': palindrome, 'anagrams': anagrams}
 
-  # count vowels, consonants, digits and special symbols
-  vowels = sum([1 for char in paragraph.lower() if char in "aeiou"])
-  consonants = sum([
-    1 for char in paragraph.lower() if char.isalpha() and char not in "aeiou"
-  ])
-  digits = sum([1 for char in paragraph if char.isdigit()])
-  symbols = sum([1 for char in paragraph if char in special_chars])
-
-  # count words and sentences
-  words = len(paragraph.split())
-  sentences = len(paragraph.split("."))
-
-  # count word frequency and palindrome words
-  word_count = Counter(paragraph.split())
-  palindrome_count = sum([1 for word in word_count if word == word[::-1]])
-
-  # count anagrams
-  def get_char_counts(word):
-    return tuple(sorted(Counter(word.lower()).items()))
-
-  anagram_count = sum([
-    1 for word, count in word_count.items()
-    if count > 1 and get_char_counts(word) in get_char_counts_anagrams
-  ])
-
-  return {
-    "vowels": vowels,
-    "consonants": consonants,
-    "digits": digits,
-    "symbols": symbols,
-    "words": words,
-    "sentences": sentences,
-    "frequency": word_count,
-    "palindrome": palindrome_count,
-    "anagrams": anagram_count,
-  }
-
-
-# precompute character count tuples for each anagram group
-get_char_counts_anagrams = {}
-for word in set(paragraph.split()):
-  char_counts = get_char_counts(word)
-  if char_counts not in get_char_counts_anagrams:
-    get_char_counts_anagrams[char_counts] = []
-  get_char_counts_anagrams[char_counts].append(word)
 
 paragraph = "There is no strife, no prejudice, no national conflict in outer space as yet. Its hazards are hostile to us all. Its conquest deserves the best of all mankind, and its opportunity for peaceful cooperation many never come again. But why, some say, the moon? Why choose this as our goal? And they may well ask why climb the highest mountain? Why, 35 years ago, fly the Atlantic? Why does Rice play Texas? We choose to go to the moon. We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organise and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win, and the others, too. -- John F Kennedy"
 
 stats = paragraph_stats(paragraph)
-print(stats)
+
+print(json.dumps(stats, indent=4)+"\n"+"Raw data:- \n {}".format(stats))
