@@ -4,7 +4,7 @@ Created on Sat Mar 25 13:23:48 2023
 
 @author: Haryish Elangumaran
 """
-import json #json format on the output is to be generated to promote readability
+import json #json format on the output is to be generated to promote 
 
 def paragraph_stats(paragraph):
     # Counting vowels, consonants, digits, symbols, and words
@@ -50,9 +50,16 @@ def paragraph_stats(paragraph):
     return {'vowels': vowels, 'consonants': consonants, 'digits': digits, 'symbols': symbols, 'words': words,
             'sentences': sentences, 'frequency': freq_dict, 'palindrome': palindrome, 'anagrams': anagrams}
 
+def print_paragraph_stats(dictionary, level=0):
+    print("The below entites are the analysis of a given paragraph,")
+    i=0
+    for i, (key,value) in enumerate(dictionary.items()):
+        print("{}.) {}: {}".format(i+1, key,value))
 
 paragraph = "There is no strife, no prejudice, no national conflict in outer space as yet. Its hazards are hostile to us all. Its conquest deserves the best of all mankind, and its opportunity for peaceful cooperation many never come again. But why, some say, the moon? Why choose this as our goal? And they may well ask why climb the highest mountain? Why, 35 years ago, fly the Atlantic? Why does Rice play Texas? We choose to go to the moon. We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organise and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win, and the others, too. -- John F Kennedy"
 
 stats = paragraph_stats(paragraph)
 
-print(json.dumps(stats, indent=4)+"\n"+"Raw data:- \n {}".format(stats))
+print_paragraph_stats(stats)
+#print(json.dumps(stats, indent=4)+"\n")
+#print("Raw data:- \n {}".format(stats))

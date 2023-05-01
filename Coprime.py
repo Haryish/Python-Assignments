@@ -10,7 +10,7 @@ def coprimenumber(a, b):
   x = set(factors(a))
   y = set(factors(b))
   hcf = x.intersection(y)
-  print(a, b, hcf)
+  print("The common factor of {} and {} is {}".format(a,b,hcf))
   if hcf == {1}:
     print('{} and {} are coprime'.format(a, b))
   else:
@@ -24,5 +24,8 @@ def factors(number):
       factor.append(j)
   return factor
 
-print("As Per code,")
-coprimenumber(14,15)
+a,b=14,15
+print("Inputs: {},{}".format(a,b))
+print("Factor of {} is {} and {}".format(a,factors(a)[:len(factors(a))-1],factors(a)[len(factors(a))-1]))
+print("Factor of {} is {} and {}".format(b,factors(b)[:len(factors(b))-1],factors(b)[len(factors(b))-1]))
+coprimenumber(a,b)
