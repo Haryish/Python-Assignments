@@ -2,7 +2,7 @@
 """
 Created on Sat Mar 25 12:43:05 2023
 
-@author: haryi
+@author: Haryish Elangumaran
 """
 import json #<-- Optional line
 
@@ -60,4 +60,4 @@ details = {
 
 sorted_details=stud_rank(details)
 json_sorted_details = json.dumps(sorted_details, indent=4) #<--- Optional line if the output you decire should be in JSON format
-print(sorted_details) #<--- To print in Json Format, Place sorted_details with json_sorted_details
+print(json_sorted_details) #<--- To print in Json Format, Place sorted_details with json_sorted_details
