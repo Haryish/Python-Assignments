@@ -38,22 +38,26 @@ def rotate_matrix(matrix, rotation):
 
     return rotated_matrix
 
+#To print the resultant matrix
 def print_matrix(matrix):
     """Function to print the matrix in a user-friendly way."""
     for row in matrix:
         print(row)
+    print("\n")
 
+#Prescribing the matrix
 matrix = [[1, 2, 3],
           [4, 5, 6],
           [7, 8, 9]]
 
+print("Given Matrix:")
+print_matrix(matrix)
+
+#Menu list
+print("Matrix Rotation Menu\n  1. Rotate by 90 degrees\n  2. Rotate by 180 degrees\n  3. Rotate by 270 degrees\n  4. Rotate by 360 degrees\n  5. Exit\n")
+
+#Processing the options
 while True:
-    print("Matrix Rotation Menu")
-    print("1. Rotate by 90 degrees")
-    print("2. Rotate by 180 degrees")
-    print("3. Rotate by 270 degrees")
-    print("4. Rotate by 360 degrees")
-    print("5. Exit")
     choice = int(input("Enter your choice: "))
     
     if choice == 1:
@@ -69,6 +73,7 @@ while True:
         matrix = rotate_matrix(matrix, 360)
         print_matrix(matrix)
     elif choice == 5:
+        print("closed")
         break
     else:
         print("Invalid choice. Please try again.")
