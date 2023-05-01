@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Mar 25 13:23:48 2023
-
+QUESTION: A2Q1
 @author: Haryish Elangumaran
 """
 import json #json format on the output is to be generated to promote 
