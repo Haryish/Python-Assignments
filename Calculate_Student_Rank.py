@@ -60,4 +60,4 @@ details = {
 
 sorted_details=stud_rank(details)
 json_sorted_details = json.dumps(sorted_details, indent=4) #<--- Optional line if the output you decire should be in JSON format
-print(json_sorted_details) #<--- To print in Json Format, Place sorted_details with json_sorted_details
+print(sorted_details) #<--- To print in Json Format, Place sorted_details with json_sorted_details
